@@ -182,7 +182,42 @@ global.bruhdash = {
   },
 
   // returns a slice of array with n elements dropped from the end
-  dropRight: function() {
+  dropRight: function(arr, drop) {
+
+    var arrDash = []
+
+    if (Array.isArray(arr)) {
+
+      if (drop === undefined) {
+
+        for (var i = 0; i < arr.length-1; i++) {
+
+          arrDash[arrDash.length] = arr[i]
+
+        } 
+
+        return arrDash
+
+      } else if (drop > 0) {
+
+        for (var i = 0; i < arr.length-drop; i++) {
+
+          arrDash[arrDash.length] = arr[i]
+        }
+
+        return arrDash
+
+      } else if (drop === 0) {
+
+        return arr
+
+      }
+
+    } else {
+
+      return 'Not an array!'
+
+    }
 
   },
 
