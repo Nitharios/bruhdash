@@ -70,15 +70,32 @@ global.bruhdash = {
       }
 
       return -1
-    }
-     else {
+
+    } else {
 
       return 'Not an array!'
      }
   },
 
   // returns an array with all elements except for the last element
-  initial: function () {
+  initial: function (arr) {
+
+    if (Array.isArray(arr)) {
+
+      var arrDash = []
+
+      for (var i = 0; i < arr.length-1; i++) {
+
+        arrDash[i] = arr[i]
+
+      }
+
+      return arrDash
+
+    } else {
+
+      return 'Not an array!'
+    }
 
   },
   
