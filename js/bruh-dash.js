@@ -556,22 +556,77 @@ global.bruhdash = {
 
   // creates an array of values by running each element in collection thru the iteratee
   // Note: this should work for arrays and objects
-  map: function() {
+  map: function(collection, iteratee) {
 
     var arrDash = []
+    var value;
 
+    if (typeof collection === 'object' && !Array.isArray(collection)) {
+      
+      var keys = Object.keys(collection)
+      var values = Object.values(collection) 
+
+      for (var i = 0; i < values.length; i++) {
+
+        value = values[i]
+        arrDash[arrDash.length] = iteratee(value, i)
+
+      }
+
+    } else if (Array.isArray(collection)) {
+
+      for (var i = 0; i < collection.length; i++) {
+
+        value = collection[i]
+        arrDash[arrDash.length] = iteratee(value, i)
+
+      }
+    }
 
     return arrDash
   },
 
-  /*************************
+  /***********************
    *  SUPER STRETCH GOALS!  *
    *************************/ 
 
   // iterates over elements of a collection and returns all elements that the predicate returns truthy for
   // Note: this should work for arrays and objects
-  filter: function() {
+  filter: function(collection, iteratee) {
 
+    var arrDash = []
+    var objDash = {}
+
+    if (typeof collection === 'object' && !Array.isArray(collection)) {
+      
+      var keys = Object.keys(collection)
+      var values = Object.values(collection) 
+
+      for (var i = 0; i < values.length; i++) {
+
+        if (iteratee(values[i]) === true) {
+
+          objDash[keys[i]] = values[i]
+
+        }
+      }
+
+      return objDash
+
+    } else if (Array.isArray(collection)) {
+
+      for (var i = 0; i < collection.length; i++) {
+
+        if (iteratee(collection[i]) === true) {
+
+          arrDash[arrDash.length] = collection[i]
+
+        }
+      }
+
+      return arrDash
+
+    }
   },
 
   // Reduces the collection to a value which is the accumulated result of running each element
