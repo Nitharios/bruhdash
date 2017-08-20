@@ -448,30 +448,120 @@ global.bruhdash = {
    *******************/ 
 
   // creates an array of grouped elements
-  zip: function () {
+  zip: function (arrOne, arrTwo) {
+
+    var arrDash = []
+
+    for (var i = 0; i < arrOne.length; i++) {
+
+      arrDash[arrDash.length] = [arrOne[i], arrTwo[i]]
+
+    }
+
+    return arrDash
 
   },
 
   // creates an array of grouped elements in their pre-zip configuration
-  unzip: function () {
+  unzip: function (arr) {
+
+    var arrOne = []
+    var arrTwo = []
+    var arrDash = []
+
+    for (var i = 0; i < arr.length; i++) {
+
+      arrOne[arrOne.length] = arr[i][0]
+      arrTwo[arrTwo.length] = arr[i][1]
+
+    }
+
+    arrDash = [arrOne, arrTwo]
+
+    return arrDash
 
   },
 
   // creates an array of elements into groups of length of specified size
-  chunk: function(){
+  chunk: function(arr, val){
+
+    var arrDash = []
+
+    if (arr.length === 0 || val === 0) {
+
+      return arrDash
+
+    } else if (val >= arr.length) {
+
+      arrDash = [arr]
+      return arrDash
+
+    } else {
+
+      for (var i = 0; i < arr.length; i++) {
+
+        var tempArr = []
+
+        for (var j = 0; j < val; j++) {
+
+          tempArr[j] = arr[i]
+          i++
+
+          if (i === arr.length) {
+
+            break
+
+          }
+        }
+
+        i--
+
+        arrDash[arrDash.length] = tempArr
+
+      }
+    }
+
+    return arrDash
 
   },
 
   // iterates over elements of a collection and invokes iteratee for each element
   // Note: this should work for arrays and objects
-  forEach: function() {
+  forEach: function(collection, iteratee) {
 
+    var value;
+
+    if (typeof collection === 'object' && !Array.isArray(collection)) {
+      
+      var keys = Object.keys(collection)
+      var values = Object.values(collection) 
+
+      for (var i = 0; i < values.length; i++) {
+
+        value = values[i]
+        iteratee(value, i)
+
+      }
+
+    } else if (Array.isArray(collection)) {
+
+      for (var i = 0; i < collection.length; i++) {
+
+        value = collection[i]
+        iteratee(value, i)
+
+      }
+    }
   },
 
   // creates an array of values by running each element in collection thru the iteratee
   // Note: this should work for arrays and objects
   map: function() {
 
+    var arrDash = []
+
+
+    return arrDash
   },
 
   /*************************
