@@ -96,12 +96,30 @@ global.bruhdash = {
 
       return 'Not an array!'
     }
-
   },
   
   // returns an array with all falsey values removed
-  compact: function() {
+  compact: function(arr) {
 
+    if (Array.isArray(arr)) {
+
+      var arrDash = []
+
+      for (var i = 0; i < arr.length; i++) {
+
+        if (typeof arr[i] === 'number' && arr[i] > 0) {
+
+            arrDash[arrDash.length] = arr[i]
+
+        }
+      }
+
+      return arrDash
+
+    } else {
+
+      return 'Not an array!'
+    }
   },
 
   // creates a slice of an array from the start index up to but not including the end index
