@@ -357,7 +357,25 @@ global.bruhdash = {
   },
 
   // removes elements of an array corresponding to the given indices
-  pullAt: function (arr, indices) {
+  pullAt: function (arr, idx) {
+
+    var arrDash = []
+
+    for (var i = 0; i < arr.length; i++) {
+
+      if (i !== idx[i]) {
+
+        arrDash[arrDash.length] = arr[i]
+
+      }
+    }
+
+    return arrDash
+
+  },
+
+  // creates an array excluding all the specified values
+  without: function(arr, idx) {
 
     var arrDash = []
 
@@ -365,17 +383,12 @@ global.bruhdash = {
 
       for (var i = 0; i < arr.length; i++) {
 
-        if (i === indices[0]) {
-          i++
+        if (arr[i] !== idx[i]) { 
+
+          arrDash[arrDash.length] = arr[i]
+
         }
-
-        if (i === indices[1]) {
-          i++
-        }
-
-        arrDash[arrDash.length] = arr[i]
-
-      } 
+      }
 
       return arrDash
 
@@ -386,13 +399,20 @@ global.bruhdash = {
     }
   },
 
-  // creates an array excluding all the specified values
-  without: function() {
-
-  },
-
   // returns an array with specified values excluded
-  difference: function() {
+  difference: function(arrOne, arrTwo) {
+
+    var arrDash = []
+
+    for (var i = 0; i < arrTwo.length; i++) {
+
+      for (var j = 0; j < arrOne.length; j++) {
+
+
+      }
+    }
+
+    return arrDash
 
   },
 
