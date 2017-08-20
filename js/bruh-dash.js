@@ -363,7 +363,7 @@ global.bruhdash = {
 
     for (var i = 0; i < arr.length; i++) {
 
-      if (i !== idx[i]) {
+      if (i !== idx[0] && i !== idx[1]) {
 
         arrDash[arrDash.length] = arr[i]
 
@@ -379,24 +379,16 @@ global.bruhdash = {
 
     var arrDash = []
 
-    if (Array.isArray(arr)) {
+    for (var i = 0; i < arr.length; i++) {
 
-      for (var i = 0; i < arr.length; i++) {
+      if (arr[i] !== idx[0] && arr[i] !== idx[1]) { 
 
-        if (arr[i] !== idx[i]) { 
+        arrDash[arrDash.length] = arr[i]
 
-          arrDash[arrDash.length] = arr[i]
-
-        }
       }
+    }
 
       return arrDash
-
-    } else {
-
-      return 'Not an array!'
-
-    }
   },
 
   // returns an array with specified values excluded
