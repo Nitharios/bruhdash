@@ -123,8 +123,22 @@ global.bruhdash = {
   },
 
   // creates a slice of an array from the start index up to but not including the end index
-  slice: function () {
+  slice: function (arr, start, end) {
 
+    var arrDash = []
+
+    if (Array.isArray(arr)) {
+      for (var i = start; i < end; i++) {
+
+        arrDash[arrDash.length] = arr[i]
+      }
+
+      return arrDash
+
+    } else {
+
+      return 'Not an array!'
+    }
   },
 
   // returns a slice of array with n elements dropped from the beignning
