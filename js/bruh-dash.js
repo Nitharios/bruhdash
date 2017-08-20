@@ -363,7 +363,19 @@ global.bruhdash = {
 
     for (var i = 0; i < arr.length; i++) {
 
-      if (i !== idx[0] && i !== idx[1]) {
+      var match = false
+
+      for (var j = 0; j < idx.length; j++) {
+
+        if (i === idx[j]) {
+
+          match = true
+          break;
+
+        }
+      }
+
+      if (match !== true) {
 
         arrDash[arrDash.length] = arr[i]
 
@@ -381,38 +393,48 @@ global.bruhdash = {
 
     for (var i = 0; i < arr.length; i++) {
 
-      if (arr[i] !== idx[0] && arr[i] !== idx[1]) { 
+      var match = false
+
+      for (var j = 0; j < idx.length; j++) {
+
+        if (arr[i] === idx[j]) {
+
+          match = true
+          break;
+
+        }
+      }
+
+      if (match !== true) {
 
         arrDash[arrDash.length] = arr[i]
 
       }
     }
 
-      return arrDash
+    return arrDash
   },
 
   // returns an array with specified values excluded
-  difference: function(arrOne, arrTwo) {
+  difference: function(arr, idx) {
 
     var arrDash = []
 
 
-    for (var i = 0; i < arrOne.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
 
-      var match = true
+      for (var j = 0; j < idx.length; j++) {
 
-      for (var j = 0; j < arrTwo.length; j++) {
-
-        if (arrOne[i] === arrTwo[j]) {
+        if (arr[i] === idx[j]) {
 
           break
 
         }
       }
 
-      if (j === arrTwo.length) {
+      if (j === idx.length) {
 
-        arrDash[arrDash.length] = arrOne[i]
+        arrDash[arrDash.length] = arr[i]
 
       }
     }
