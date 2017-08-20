@@ -128,6 +128,7 @@ global.bruhdash = {
     var arrDash = []
 
     if (Array.isArray(arr)) {
+
       for (var i = start; i < end; i++) {
 
         arrDash[arrDash.length] = arr[i]
@@ -141,9 +142,43 @@ global.bruhdash = {
     }
   },
 
-  // returns a slice of array with n elements dropped from the beignning
-  drop: function(){
+  // returns a slice of array with n elements dropped from the beginning
+  drop: function(arr, drop){
 
+    var arrDash = []
+
+    if (Array.isArray(arr)) {
+
+      if (drop === undefined) {
+
+        for (var i = 1; i < arr.length; i++) {
+
+          arrDash[arrDash.length] = arr[i]
+
+        } 
+
+        return arrDash
+
+      } else if (drop > 0) {
+
+        for (var i = drop; i < arr.length; i++) {
+
+          arrDash[arrDash.length] = arr[i]
+        }
+
+        return arrDash
+
+      } else if (drop === 0) {
+
+        return arr
+
+      }
+
+    } else {
+
+      return 'Not an array!'
+
+    }
   },
 
   // returns a slice of array with n elements dropped from the end
