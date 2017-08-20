@@ -13,13 +13,12 @@ global.bruhdash = {
   first: function (arr) {
 
       if (Array.isArray(arr)) {
-        
+
         return arr[0]
 
       } else {
 
         return 'Not an array!'
-      
       }
   },
 
@@ -32,10 +31,8 @@ global.bruhdash = {
 
     } else {
 
-    return 'Not an array!'
-
+      return 'Not an array!'
     }
-
   },
 
   // returns the index of the first matching element from left to right
@@ -48,24 +45,36 @@ global.bruhdash = {
         if (arr[i] === search) {
 
           return i
-
         }
-
-      }
+      } 
 
       return -1
 
     } else {
 
       return 'Not an array!'
-
     }
-
   },
 
   // returns the index of the first matching element from left to right
-  lastIndexof: function () {
+  lastIndexOf: function (arr, search) {
 
+    if (Array.isArray(arr)) {
+
+      for (var i = arr.length; i >= 0; i--) {
+
+        if (arr[i] === search) {
+
+          return i
+        }
+      }
+
+      return -1
+    }
+     else {
+
+      return 'Not an array!'
+     }
   },
 
   // returns an array with all elements except for the last element
