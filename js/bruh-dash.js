@@ -396,10 +396,23 @@ global.bruhdash = {
 
     var arrDash = []
 
-    for (var i = 0; i < arrTwo.length; i++) {
 
-      for (var j = 0; j < arrOne.length; j++) {
+    for (var i = 0; i < arrOne.length; i++) {
 
+      var match = true
+
+      for (var j = 0; j < arrTwo.length; j++) {
+
+        if (arrOne[i] === arrTwo[j]) {
+
+          break
+
+        }
+      }
+
+      if (j === arrTwo.length) {
+
+        arrDash[arrDash.length] = arrOne[i]
 
       }
     }
