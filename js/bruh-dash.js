@@ -39,7 +39,27 @@ global.bruhdash = {
   },
 
   // returns the index of the first matching element from left to right
-  indexOf: function () {
+  indexOf: function (arr, search) {
+
+    if (Array.isArray(arr)) {
+
+      for (var i = 0; i < arr.length; i++) {
+
+        if (arr[i] === search) {
+
+          return i
+
+        }
+
+      }
+
+      return -1
+
+    } else {
+
+      return 'Not an array!'
+
+    }
 
   },
 
