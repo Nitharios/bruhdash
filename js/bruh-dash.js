@@ -222,7 +222,42 @@ global.bruhdash = {
   },
 
   // creates a slice of an array with n elements taken from the beginning
-  take: function () {
+  take: function (arr, slice) {
+
+    var arrDash = []
+
+    if (Array.isArray(arr)) {
+
+      if (slice === undefined) {
+
+        arrDash[arrDash.length] = arr[0]
+        return arrDash
+
+      } else if (slice > 0 && slice <= arr.length) {
+
+        for (var i = 0; i < slice; i++) {
+
+          arrDash[arrDash.length] = arr[i]
+
+        }
+
+        return arrDash
+
+      } else if (slice > arr.length) {
+
+        return arr
+
+      } else if (slice === 0) {
+
+        return arrDash
+
+      }
+
+    } else {
+
+      return 'Not an array!'
+
+    }
 
   },
 
