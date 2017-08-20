@@ -11,6 +11,7 @@ global.bruhdash = {
 
   // returns the first element of an array
   first: function (arr) {
+
       if (Array.isArray(arr)) {
         
         return arr[0]
@@ -23,7 +24,17 @@ global.bruhdash = {
   },
 
   // returns the last element of an array
-  last: function () {
+  last: function (arr) {
+
+    if (Array.isArray(arr)) {
+
+      return arr[arr.length-1]
+
+    } else {
+
+    return 'Not an array!'
+
+    }
 
   },
 
