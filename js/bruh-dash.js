@@ -332,13 +332,58 @@ global.bruhdash = {
   },
 
   // removes all given values from an array
-  pull: function () {
+  pull: function (arr, valOne, valTwo) {
 
+    var arrDash = []
+
+    if (Array.isArray(arr)) {
+
+      for (var i = 0; i < arr.length; i++) {
+
+        if (arr[i] !== valOne && arr[i] !== valTwo) {
+
+          arrDash[arrDash.length] = arr[i]
+
+        }
+      }
+
+      return arrDash
+
+    } else {
+
+      return 'Not an array!'
+
+    }
   },
 
   // removes elements of an array corresponding to the given indices
-  pullAt: function () {
+  pullAt: function (arr, indices) {
 
+    var arrDash = []
+
+    if (Array.isArray(arr)) {
+
+      for (var i = 0; i < arr.length; i++) {
+
+        if (i === indices[0]) {
+          i++
+        }
+
+        if (i === indices[1]) {
+          i++
+        }
+
+        arrDash[arrDash.length] = arr[i]
+
+      } 
+
+      return arrDash
+
+    } else {
+
+      return 'Not an array!'
+
+    }
   },
 
   // creates an array excluding all the specified values
