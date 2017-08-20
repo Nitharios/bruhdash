@@ -10,8 +10,16 @@ var global = window || GLOBAL;
 global.bruhdash = {
 
   // returns the first element of an array
-  first: function () {
+  first: function (arr) {
+      if (Array.isArray(arr)) {
+        
+        return arr[0]
+
+      } else {
+
+        return 'Not an array!'
       
+      }
   },
 
   // returns the last element of an array
