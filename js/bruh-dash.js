@@ -41,7 +41,7 @@ global.bruhdash = {
 
   // returns an array with all elements except for the last element
   initial: function (arr) {
-    var popArr = arr
+    var popArr = arr                     // create a copy to preserve original array
       popArr.pop()                       // destructive
     return popArr                      
   },
@@ -65,7 +65,6 @@ global.bruhdash = {
     for (var i = start; i < end; i++) {
       sliceArr.push(arr[i])
     }
-
     return sliceArr
   },
 
@@ -284,7 +283,6 @@ global.bruhdash = {
         }
       }
       return arrDash
-
     } else if (!Array.isArray(collection)) {
       for (var j in collection) {
         if (iteratee(collection[j])) {
